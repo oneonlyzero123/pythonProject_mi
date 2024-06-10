@@ -5,6 +5,63 @@
 # 级，并再次调⽤ get_range()。你将看到这辆汽⻋的续航⾥程增加
 # 了
 #
+class Car():
+    def __init__(self,make,model,year):
+        self.make=make
+        self.model=model
+        self.year=year
+        self.odometer_reading=0
+
+    def get_descriptive_name(self):
+        long_name=str(self.year)+" "+self.make+" "+self.model
+        return long_name.title()
+
+    def read_odometer(self):
+        print(str(self.odometer_reading))
+
+    def update_odometer(self,mileage):
+        if mileage>=self.odometer_reading:
+            self.odometer_reading=mileage
+
+        else:
+            print("no!")
+
+    def increment_odometer(self,miles):
+        self.odometer_reading+=miles
+
+
+class Battery():
+    def __init__(self,battery_size=70):
+        self.battery_size=battery_size
+
+    def describe_battery(self):
+        print(str(self.battery_size))
+
+    def get_range(self):
+        if self.battery_size==70:
+            range=240
+        elif self.battery_size==85:
+            range=270
+
+        message=str(range)
+        print(message)
+
+    def upgrade_battery(self):
+        if self.battery_size!=85:
+            self.battery_size=85
+
+
+
+class ElectricCar(Car):
+    def __init__(self, make, model, year):
+        super().__init__(make, model, year)
+        self.battery = Battery()
+
+my_tesla=ElectricCar('tesla','model s',2016)
+my_tesla.battery.get_range()
+
+my_tesla.battery.upgrade_battery()
+my_tesla.battery.get_range()
 
 
 
@@ -13,46 +70,3 @@
 
 
 
-
-
-
-
-
-# 练习 9.10：导⼊ Restaurant 类 将最新的 Restaurant 类存储在
-# ⼀个模块中。在另⼀个⽂件中导⼊ Restaurant 类，创建⼀个
-# Restaurant 实例，并调⽤ Restaurant 的⼀个⽅法，以确认
-# import 语句正确⽆误。
-# 练习 9.11：导⼊ Admin 类 以为完成练习 9.8 ⽽做的⼯作为基础。将
-# User 类、Privileges 类和 Admin 类存储在⼀个模块中，再创建⼀
-# 个⽂件，在其中创建⼀个 Admin 实例并对其调⽤
-# show_privileges() ⽅法，以确认⼀切都能正确地运⾏。
-# 练习 9.12：多个模块 将 User 类存储在⼀个模块中，并将
-# Privileges 类和 Admin 类存储在另⼀个模块中。再创建⼀个⽂件，
-# 在其中创建⼀个 Admin 实例并对其调⽤ show_privileges() ⽅
-# 法，以确认⼀切依然能够正确地运⾏。
-#
-
-
-
-
-
-
-# 练习 9.13：骰⼦ 创建⼀个 Die 类，它包含⼀个名为 sides 的属性，
-# 该属性的默认值为 6。编写⼀个名为 roll_die() 的⽅法，它打印位
-# 于 1 和骰⼦⾯数之间的随机数。创建⼀个 6 ⾯的骰⼦并掷 10 次。
-# 创建⼀个 10 ⾯的骰⼦和⼀个 20 ⾯的骰⼦，再分别掷 10 次。
-# 练习 9.14：彩票 创建⼀个列表或元素，其中包含 10 个数和 5 个字
-# ⺟。从这个列表或元组中随机选择 4 个数或字⺟，并打印⼀条消息，
-# 指出只要彩票上是这 4 个数或字⺟，就中⼤奖了。
-
-
-# 练习 9.15：彩票分析 可以使⽤⼀个循环来理解中前述彩票⼤奖有多
-# 难。为此，创建⼀个名为 my_ticket 的列表或元组，再编写⼀个循
-# 环，不断地随机选择数或字⺟，直到中⼤奖为⽌。请打印⼀条消息，
-# 报告执⾏多少次循环才中了⼤奖。
-
-
-# 练习 9.16：Python 3 Module of the Week 要了解 Python 标准库，⼀
-# 个很不错的资源是⽹站 Python 3 Module of the Week。请访问该⽹站并
-# 查看其中的⽬录，找⼀个你感兴趣的模块进⾏探索，从模块 random
-# 开始可能是个不错的选择。

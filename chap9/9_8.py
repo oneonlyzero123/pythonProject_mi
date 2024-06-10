@@ -6,7 +6,8 @@
 
 class Privileges():
 
-    def __init__(self,privileges=["can add post", "can delete post", "can ban user","can write","can read"]):
+    def __init__(self,privileges=
+    ["can add post", "can delete post", "can ban user","can write","can read"]):
 
         self.privileges =privileges
     def show_privileges(self):
